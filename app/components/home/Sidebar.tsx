@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes, faHome, faBriefcase, faBox, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faHome, faBriefcase, faBox, faEnvelope, faBlog } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -92,6 +92,15 @@ const Sidebar = () => {
                         >
                             <FontAwesomeIcon icon={faBox} className="text-xl group-hover:scale-110 transition-transform duration-300" />
                             <span className="font-medium text-lg">Catálogo</span>
+                        </Link>
+
+                        <Link
+                            to="/blog"
+                            onClick={closeSidebar}
+                            className="w-full flex items-center space-x-4 px-6 py-4 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all duration-300 group"
+                        >
+                            <FontAwesomeIcon icon={faBlog} className="text-xl group-hover:scale-110 transition-transform duration-300" />
+                            <span className="font-medium text-lg">Blog</span>
                         </Link>
 
                         <button

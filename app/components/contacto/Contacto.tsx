@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faLocationDot, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 import CustomInput from "./CustomImput";
+import CountrySelect from "./CountrySelect";
 
 const ContactSection = () => {
     const [errors, setErrors] = useState<any>([]);
@@ -15,6 +16,7 @@ const ContactSection = () => {
         const name = formData.get('name');
         const lastname = formData.get('lastname');
         const email = formData.get('email');
+        const country = formData.get('country');
         const message = formData.get('message');
 
         const errorList = [];
@@ -37,6 +39,13 @@ const ContactSection = () => {
             errorList.push({
                 field: 'email',
                 message: 'El correo electrónico es obligatorio.'
+            });
+        }
+
+        if (!country || country === "") {
+            errorList.push({
+                field: 'country',
+                message: 'Debes seleccionar un país.'
             });
         }
 
@@ -175,6 +184,17 @@ const ContactSection = () => {
                                     name="email"
                                     placeholder="tu@email.com"
                                     errors={errors}
+                                />
+                            </div>
+
+                            {/* Country */}
+                            <div>
+                                <CountrySelect
+                                    label="País"
+                                    id="country"
+                                    name="country"
+                                    errors={errors}
+                                    required={true}
                                 />
                             </div>
 
